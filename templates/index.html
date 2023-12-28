@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>BMI Calculator</title>
+</head>
+<body>
+    <h1>BMI Calculator</h1>
+    <form method="post">
+        
+        <label for="height">Height:</label>
+        <input type="number" step="any" name="height" id="height" placeholder="Enter height" required><br><br>
+
+        <label for="weight">Weight:</label>
+        <input type="number" step="any" name="weight" id="weight" placeholder="Enter weight" required><br><br>
+
+        <label for="system">Measurement System:</label>
+        <select name="system" id="system">
+            <option value="metric">Metric (cm, kg)</option>
+            <option value="imperial">Imperial (inches, lbs)</option>
+        </select><br><br>
+
+        <button type="submit">Calculate BMI</button>
+    </form>
+
+    {% if (bmi_result) %}
+    <h2>For a height of {{ input_height }} {% if system == 'imperial' %}in{% else %}cm{% endif %} and weight of {{ input_weight }} {% if system == 'metric' %}kg{% else %}lbs{% endif %} your BMI is: {{ bmi_result }}</h2>
+    {% endif %}
+</body>
+</html>
